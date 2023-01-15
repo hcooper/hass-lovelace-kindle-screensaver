@@ -309,6 +309,8 @@ function convertImageToKindleCompatiblePngAsync(
       .level(pageConfig.blackLevel, pageConfig.whiteLevel)
       .bitdepth(pageConfig.grayscaleDepth)
       .quality(100)
+      .font("FreeSans", 14)
+      .drawText(1, 1439, new Date().toISOString())
       .write(outputPath, (err) => {
         if (err) {
           reject(err);
