@@ -22,8 +22,14 @@ RUN npm ci
 
 COPY *.js ./
 
+
+# Seriously. Like WTF the does docker COPY do to directories?!?!
 CMD mkdir www
-COPY www/* ./www/
+CMD mkdir www/kindle-wifi
+COPY www/kindle-sleep-duration www/
+COPY www/screenshot_server_is_on_port_8080 www/
+COPY www/kindle-wifi/wifistub-eink.html www/kindle-wifi/
+COPY www/kindle-wifi/wifistub.html www/kindle-wifi/
 
 COPY run.sh ./
 CMD chmod +x ./run.sh
