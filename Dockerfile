@@ -22,6 +22,12 @@ RUN npm ci
 
 COPY *.js ./
 
+CMD mkdir www
+COPY www/* ./www/
+
+COPY run.sh ./
+CMD chmod +x ./run.sh
+
 EXPOSE 5000
 
-CMD ["npm", "start"]
+CMD ./run.sh
